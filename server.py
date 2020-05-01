@@ -1,4 +1,4 @@
-from opcua import Server
+from opcua import ua, Server
 from random import randint
 import datetime
 import time

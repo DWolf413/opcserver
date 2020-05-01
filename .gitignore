@@ -1,2 +1,4 @@
 /opc
 .server.py.swp
+*.der
+*.pem
