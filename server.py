@@ -11,8 +11,8 @@ server.set_endpoint(url)
 server.set_security_policy([ua.SecurityPolicyType.Basic256Sha256_SignAndEncrypt])
 # load server certificate and private key. This enables endpoints
 # with signing and encryption.
-server.load_certificate("certificate-example.der")
-server.load_private_key("private-key-example.pem")
+server.load_certificate("/home/administrador/opc/opcserver/my_cert.der")
+server.load_private_key("/home/administrador/opc/opcserver/my_cert/my_cert.pem")
 
 name = "OPCUA_SERVER"
 addspace = server.register_namespace(name)
