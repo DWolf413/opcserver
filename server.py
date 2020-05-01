@@ -5,7 +5,7 @@ import time
 
 server = Server()
 
-url = "opc.tcp://192.168.1.7:4840"
+url = "opc.tcp://192.168.100.6:4840"
 server.set_endpoint(url)
 
 name = "OPCUA_SERVER"
