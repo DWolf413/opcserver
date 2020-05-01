@@ -35,7 +35,7 @@ Time.set_writable()
 server.start()
 print("Server at {}".format(url))
 opc_server.init_opc_server_security('192.168.100.6')
-opc_server.set_server_credentials('admin', 'admin')
+opc_server.set_server_credentials('adm', 'adm')
 
 while True:
 

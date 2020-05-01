@@ -2,3 +2,5 @@
 .server.py.swp
 *.der
 *.pem
+*.json
+__pycache__/

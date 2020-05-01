@@ -20,9 +20,9 @@ class OPC_SERVER_SECURITY:
 
         out_json = dict()
 
-        out_json['username'] = server_hash_user.decode()
-        out_json['password'] = server_hash_pwd.decode()
-        out_json['salt'] = self.salt.decode()
+        out_json['username'] = server_hash_user.encode('utf-8').decode('utf-8')
+        out_json['password'] = server_hash_pwd.encode('utf-8').decode('utf-8')
+        out_json['salt'] = self.salt.encode('utf-8').decode('utf-8')
 
         with open('credentials.json', 'w') as fp:
             json.dump(out_json, fp, indent=4, ensure_ascii=False)
