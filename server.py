@@ -9,6 +9,8 @@ url = "opc.tcp://192.168.100.6:4840"
 server.set_endpoint(url)
 
 server.set_security_policy([ua.SecurityPolicyType.Basic256Sha256_SignAndEncrypt])
+server.load_certificate("/home/administradpr/opc/opcserver/certificados/cert.der")
+server.load_private_key("/home/administradpr/opc/opcserver/certificados/private_key.pem")
 
 name = "OPCUA_SERVER"
 addspace = server.register_namespace(name)
