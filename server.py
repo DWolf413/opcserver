@@ -1,3 +1,5 @@
+
+
 from opcua import Server, ua
 from random import randint
 import datetime
