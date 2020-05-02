@@ -1,4 +1,4 @@
-from opcua import Server
+from opcua import Server, ua
 from random import randint
 import datetime
 import time
@@ -7,6 +7,8 @@ server = Server()
 
 url = "opc.tcp://192.168.100.6:4840"
 server.set_endpoint(url)
+
+server.set_security_policy([ua.SecurityPolicyType.Basic256Sha256_SignAndEncrypt])
 
 name = "OPCUA_SERVER"
 addspace = server.register_namespace(name)
