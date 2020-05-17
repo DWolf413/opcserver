@@ -1,29 +1,29 @@
 
-import sys
-from opcua.crypto import uacrypto
-from opcua import Server, ua
-from random import randint
-import datetime
-import time
+#import sys
+#from opcua.crypto import uacrypto
+#from opcua import Server, ua
+#from random import randint
+#import datetime
+#import time
 
-sys.path.insert(0, "..")
+#sys.path.insert(0, "..")
 
-if __name__ == '__main__':
-    server = Server()
+#if __name__ == '__main__':
+    #server = Server()
 
-    url = "opc.tcp://192.168.100.6:4840"
-    server.set_endpoint(url)
+    #url = "opc.tcp://192.168.100.6:4840"
+    #server.set_endpoint(url)
 
-    server.set_security_policy([ua.SecurityPolicyType.Basic256Sha256_SignAndEncrypt])
-    server.load_certificate("/home/administrador/opc/opcserver/certificados/my_cert.der")
-    server.load_private_key("/home/administrador/opc/opcserver/certificados/my_private_key.pem")
+    #server.set_security_policy([ua.SecurityPolicyType.Basic256Sha256_SignAndEncrypt])
+    #server.load_certificate("/home/administrador/opc/opcserver/certificados/my_cert.der")
+    #server.load_private_key("/home/administrador/opc/opcserver/certificados/my_private_key.pem")
 
-    name = "OPCUA_SERVER"
-    addspace = server.register_namespace(name)
+    #name = "OPCUA_SERVER"
+    #addspace = server.register_namespace(name)
 
-    node = server.get_objects_node()
+    #node = server.get_objects_node()
 
-    Param = node.add_object(addspace, "Parameters")
+    #Param = node.add_object(addspace, "Parameters")
 
     Temp = Param.add_variable(addspace, "Tempreature", 0)
     Press = Param.add_variable(addspace, "Pressure", 0)
