@@ -33,6 +33,8 @@ while True:
     datos_telefono = json.loads(data) 
     #print(datos_telefono)
     obtencion_de_paramentros(datos_telefono)
+    server.start()
+    print('OPC ENCENDIDO')
     message = ("Datos recibido").encode()
     conexion.sendall(message)
     conexion.close()
