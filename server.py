@@ -1,14 +1,13 @@
-from opcua import ua, Server
-from random import randint
-import datetime
-import time
-from opc_server_security import OPC_SERVER_SECURITY
+#import sys
+#from opcua.crypto import uacrypto
+#from opcua import Server, ua
+#from random import randint
+#import datetime
+#import time
 
-opc_server = OPC_SERVER_SECURITY()
-server = Server()
 
-url = "opc.tcp://192.168.100.6:4840"
-server.set_endpoint(url)
+#sys.path.insert(0, "..")
+
 
 #server.set_security_policy([ua.SecurityPolicyType.Basic256Sha256_SignAndEncrypt])
 # load server certificate and private key. This enables endpoints
@@ -17,42 +16,45 @@ server.set_endpoint(url)
 #server.load_private_key("/home/administrador/opc/opcserver/my_private_key.pem")
 
 
-name = "OPCUA_SERVER"
-addspace = server.register_namespace(name)
+#if __name__ == '__main__':
+    #server = Server()
 
-node = server.get_objects_node()
+    #url = "opc.tcp://192.168.100.6:4840"
+    #server.set_endpoint(url)
 
-Param = node.add_object(addspace, "Parameters")
+    #server.set_security_policy([ua.SecurityPolicyType.Basic256Sha256_SignAndEncrypt])
+    #server.load_certificate("/home/administrador/opc/opcserver/certificados/my_cert.der")
+    #server.load_private_key("/home/administrador/opc/opcserver/certificados/my_private_key.pem")
 
-Temp = Param.add_variable(addspace, "Tempreature", 0)
-Press = Param.add_variable(addspace, "Pressure", 0)
-Time = Param.add_variable(addspace, "Time", 0)
+    #name = "OPCUA_SERVER"
+    #addspace = server.register_namespace(name)
 
-Temp.set_writable()
-Press.set_writable()
-Time.set_writable()
+    #node = server.get_objects_node()
+=
+    #Param = node.add_object(addspace, "Parameters")
 
-server.start()
-print("Server at {}".format(url))
-opc_server.init_opc_server_security('192.168.100.6')
-opc_server.set_server_credentials('adm', 'adm')
+    Temp = Param.add_variable(addspace, "Tempreature", 0)
+    Press = Param.add_variable(addspace, "Pressure", 0)
+    Time = Param.add_variable(addspace, "Time", 0)
+   
+    Temp.set_writable()
+    Press.set_writable()
+    Time.set_writable()
 
-while True:
+    server.start()
+    print("Server at {}".format(url))
 
-    res = opc_server.client_authentication()
-    
-    while res:
+    while True:
         Temperature = randint(10,50)
         Pressure = randint(20, 999)
         TIME = datetime.datetime.now()
-    
 
-    print (Temperature, Pressure, TIME)
+        print (Temperature, Pressure, TIME)
 
-    Temp.set_value(Temperature)
-    Press.set_value(Pressure)
-    Time.set_value(TIME)
+        Temp.set_value(Temperature)
+        Press.set_value(Pressure)
+        Time.set_value(TIME)
 
-    time.sleep(2)
+        time.sleep(2)
 
 

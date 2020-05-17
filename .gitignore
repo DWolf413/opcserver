@@ -1,6 +1,11 @@
 /opc
 .server.py.swp
+<<<<<<< HEAD
 *.der
 *.pem
 *.json
 __pycache__/
+=======
+/certificados
+.swp
+>>>>>>> edac355b6d445e8228cdac29fb6afb85cdd49751
