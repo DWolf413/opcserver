@@ -42,12 +42,12 @@ def comprobacion(datos_linea, lista_lineas):
         
         if lineas == datos_telefono['Linea']:
             print('Encontrado')
-            break
+            continue
         
         else:
             lista_lineas.append(datos_telefono['Linea'])
             print('Entro AQUI')
-            print(listas_lineas)
+            print(lista_lineas)
             creacion_de_parametros(datos_linea)
 
 
