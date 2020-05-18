@@ -39,11 +39,12 @@ def creacion_de_parametros(datos_telefono):
 def comprobacion(datos_linea, lista_lineas):
 
     for lineas in lista_lineas:
+        
         if lineas == datos_telefono['Linea']:
             print('Encontrado')
-        break
-    
-    else:
+            break
+        
+        else:
             
             lista_lineas.append(datos_telefono['Linea'])
             creacion_de_parametros(datos_linea)
