@@ -5,22 +5,17 @@ from opcua import Server, ua
 import time
 
 
-def obtencion_de_paramentros(datos_telefono):
-    print(datos_telefono['Extension'])
+def creacion_de_paramentros(datos_telefono):
     
-    datos_telefono['Extension'] = node.add_object(addspace, datos_telefono['Extension'])
-    datos_telefono['Interfono'] = datos_telefono['Extension'].add_object(addspace, datos_telefono['Interfono'])
-    
-    
-    
-    
-    
-    #estacion = interfono.add_object(addspace, "Estacion")
-    #id_telefono = estacion.add_variable(addspace, 'Id', datos_telefono['id'])
-    #registro = estacion.add_variable(addspace, 'Registro', datos_telefono['Registro'])
-    #estado = estacion.add_variable(addspace, 'Estado', datos_telefono['Estado'])
-    #llamada = estacion.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
-    #linea = estacion.add_variable(addspace, 'Linea', datos_telefono['Linea'])
+    linea = node.add_object(addspace, datos_telefono['Extension'])
+    estacion = interfono.add_object(addspace, datos_telefono['Estacion'])
+    id_telefono = estacion.add_variable(addspace, 'Id', datos_telefono['id'])
+    registro = estacion.add_variable(addspace, 'Registro', datos_telefono['Registro'])
+    estado = estacion.add_variable(addspace, 'Estado', datos_telefono['Estado'])
+    llamada = estacion.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
+    linea = estacion.add_variable(addspace, 'Linea', datos_telefono['Linea'])
+
+
 
     #id_telefono.set_writable()
     #registro.set_writable()
@@ -47,8 +42,9 @@ def comprobacion(datos_linea, lista_lineas):
         break
     
     else:
+            
             lista_lineas.append(datos_telefono['Linea'])
-            print(lista_lineas)
+            creacion_de_parametros(datos_linea)
 
 
 
