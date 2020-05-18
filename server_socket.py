@@ -15,6 +15,23 @@ def obtencion_de_paramentros(datos_telefono):
     llamada = estacion.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
     linea = estacion.add_variable(addspace, 'Linea', datos_telefono['Linea'])
 
+    id_telefono.set_writable()
+    registro.set_writable()
+    estado.set_writable()
+    llamada.set_writable()
+    linea.set_writable()
+
+    escritura_de_parametros(datos_telefono)
+
+def escritura_de_parametros(datos_telefono):
+
+    id_telefono.set_value(datos_telefono['id'])
+    registro.set_value(datos_telefono['Registro'])
+    estado.set_value(datos_telefono['Estado'])
+    llamada.set_value(datos_telefono['Llamada'])
+    linea.set_value(datos_telefono['Linea'])
+
+
 if __name__ == '__main__':
 
     #ACTIVACIÓN SERVIDOR SOCKET
@@ -40,7 +57,7 @@ while True:
     datos_telefono = json.loads(data) 
     #print(datos_telefono)
     obtencion_de_paramentros(datos_telefono)
-    
+    #escritura_de_parametros(datos_telefono)
     print('OPC ENCENDIDO')
     message = ("Datos recibido").encode()
     conexion.sendall(message)

@@ -25,16 +25,16 @@
 
     #Param = node.add_object(addspace, "Parameters")
 
-    Temp = Param.add_variable(addspace, "Tempreature", 0)
-    Press = Param.add_variable(addspace, "Pressure", 0)
-    Time = Param.add_variable(addspace, "Time", 0)
+    #Temp = Param.add_variable(addspace, "Tempreature", 0)
+    #Press = Param.add_variable(addspace, "Pressure", 0)
+    #Time = Param.add_variable(addspace, "Time", 0)
 
-    Temp.set_writable()
-    Press.set_writable()
-    Time.set_writable()
+    #Temp.set_writable()
+    #Press.set_writable()
+    #Time.set_writable()
 
-    server.start()
-    print("Server at {}".format(url))
+    #server.start()
+    #print("Server at {}".format(url))
 
     while True:
         Temperature = randint(10,50)
