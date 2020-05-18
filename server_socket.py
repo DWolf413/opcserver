@@ -6,7 +6,8 @@ from opcua import Server, ua
 
 def obtencion_de_paramentros(datos_telefono):
     print(datos_telefono['Extension'])
-    Parametros = node.add_object(addspace, datos_telefono['Extension'])
+    Linea = node.add_object(addspace, datos_telefono['Extension'])
+    Estacion = node.add_object(addspace, datos_telefono['Interfono'])
 
 if __name__ == '__main__':
 
@@ -22,8 +23,8 @@ if __name__ == '__main__':
 
     name = "OPCUA_SERVER"
     addspace = server.register_namespace(name)
-
     node = server.get_objects_node()
+    server.start()
 
 
 while True:
@@ -33,7 +34,7 @@ while True:
     datos_telefono = json.loads(data) 
     #print(datos_telefono)
     obtencion_de_paramentros(datos_telefono)
-    server.start()
+    
     print('OPC ENCENDIDO')
     message = ("Datos recibido").encode()
     conexion.sendall(message)
