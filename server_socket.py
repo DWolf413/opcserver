@@ -7,7 +7,6 @@ import time
 
 def creacion_desde_linea(datos_telefono):
     
-    global dic_lineas = {}
     linea = node.add_object(addspace, datos_telefono['Linea'])
     estacion = linea.add_object(addspace, datos_telefono['Estacion'])
     interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
@@ -79,7 +78,7 @@ if __name__ == '__main__':
     #PAREMETROS
     lista_lineas = []
     lista_estacion = []
-
+    global dic_lineas = {}
     
     #ACTIVACIÓN SERVIDOR SOCKET
     mi_socket = socket.socket()
