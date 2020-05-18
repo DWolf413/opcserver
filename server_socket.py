@@ -2,6 +2,7 @@ import socket
 import json
 from opcua.crypto import uacrypto
 from opcua import Server, ua
+import time
 
 
 def obtencion_de_paramentros(datos_telefono):
