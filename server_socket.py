@@ -18,7 +18,7 @@ def creacion_desde_linea(datos_telefono):
 
     return linea
 
-def creacion_de_parametros(datos_linea, linea):
+def creacion_desde_estacion(datos_linea, linea):
 
     estacion = linea.add_object(addspace, datos_telefono['Estacion'])
     interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
