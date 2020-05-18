@@ -78,7 +78,8 @@ if __name__ == '__main__':
     #PAREMETROS
     lista_lineas = []
     lista_estacion = []
-    global dic_lineas = {}
+    global dic_lineas
+    dic_lineas = {}
     
     #ACTIVACIÓN SERVIDOR SOCKET
     mi_socket = socket.socket()
