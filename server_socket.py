@@ -74,7 +74,7 @@ while True:
     data = conexion.recv(1024)
     datos_telefono = data.decode()
     datos_telefono = json.loads(data) 
-    lista_lineas.append(datos_telefono['linea'])
+    lista_lineas.append(datos_telefono['Linea'])
     comprobacion(datos_telefono, lista_lineas)
 
 
