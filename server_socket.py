@@ -16,10 +16,8 @@ def creacion_desde_linea(datos_telefono):
     estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
     llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
 
-    lista_nodo_linea = [linea]
-    print(lista_nodo_linea)
-
     dic_lineas[datos_telefono['Linea']] = linea
+    print(dic_lineas)
 
 
 def creacion_desde_estacion(datos_linea, linea):
