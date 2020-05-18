@@ -7,7 +7,7 @@ import time
 
 def creacion_de_parametros(datos_telefono):
     
-    linea = node.add_object(addspace, datos_telefono['Extension'])
+    linea = node.add_object(addspace, datos_telefono['Linea'])
     estacion = linea.add_object(addspace, datos_telefono['Estacion'])
     interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
     id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
@@ -40,18 +40,14 @@ def comprobacion(datos_linea, lista_lineas):
 
     print('Entro a la funcion')
     print(lista_lineas)
+    
+    if datos_linea['Linea'] not in lista_lineas:
+        print('No Encontrado1')
+        #break
 
-    for lineas in lista_lineas:
-        
-        print('Entro bucle lineas')
-        print(lineas)
 
-        if lineas not in lista_lineas:
-            print('No Encontrado')
-            #break
-            
-        else:
-            print('Encontrado')
+    else:
+        print('Encontrado')
             #lista_lineas.append(datos_telefono['Linea'])
             #print(lista_lineas)
             #creacion_de_parametros(datos_linea)
