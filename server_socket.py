@@ -47,7 +47,8 @@ def comprobacion(datos_linea):
         if lineas == datos_telefono['Linea']:
             print('Encontrado')
         break
-        else:
+    
+    else:
             lista_lineas.append(datos_telefono['Linea'])
             print(lista_lineas)
 
