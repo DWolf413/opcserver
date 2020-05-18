@@ -21,15 +21,17 @@ def obtencion_de_paramentros(datos_telefono):
     llamada.set_writable()
     linea.set_writable()
 
-    escritura_de_parametros(datos_telefono)
-
-def escritura_de_parametros(datos_telefono):
-
     id_telefono.set_value(datos_telefono['id'])
     registro.set_value(datos_telefono['Registro'])
     estado.set_value(datos_telefono['Estado'])
     llamada.set_value(datos_telefono['Llamada'])
     linea.set_value(datos_telefono['Linea'])
+
+   #escritura_de_parametros(datos_telefono)
+
+def escritura_de_parametros(datos_telefono):
+
+   pass
 
 
 if __name__ == '__main__':
