@@ -4,7 +4,11 @@ import json
 HOST = 'localhost'
 PORT = 8000
 
+<<<<<<< HEAD
 my_dict = {'Extension': '9000', 'Interfono': 'SEP00505629E137', 'Estacion': '', 'Registro': False, 'id': 'SEP00505629E136', 'Llamada': 'NO CONECTADO', 'Linea': 'L01', 'Estado': "REPOSO"  }
+=======
+my_dict = {'Extension': '9000', 'Interfono': 'SEP00505629E136', 'Estacion': 'Prueba', 'Registro': False, 'id': 'SEP00505629E136', 'Llamada': 'NO CONECTADO', 'Linea': 'L01', 'Estado': 'REPOSO'}
+>>>>>>> c3e26850d8150e64be8c0d275879a045ba3d3a0a
 jsn = json.dumps(my_dict)
 print(jsn)
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
