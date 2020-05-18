@@ -46,16 +46,16 @@ def comprobacion(datos_linea, lista_lineas):
         print('Entro bucle lineas')
         print(lineas)
 
-        if lineas == datos_telefono['Linea']:
-            print('Encontrado')
-            break
+        if lineas not in lista_lineas
+            print('No Encontrado')
+            #break
             
         else:
-            print('Entro else')
-            lista_lineas.append(datos_telefono['Linea'])
-            print(lista_lineas)
-            creacion_de_parametros(datos_linea)
-            break
+            print('Encontrado')
+            #lista_lineas.append(datos_telefono['Linea'])
+            #print(lista_lineas)
+            #creacion_de_parametros(datos_linea)
+            #break
             
 
 
