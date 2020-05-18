@@ -39,6 +39,7 @@ def creacion_de_parametros(datos_telefono):
 def comprobacion(datos_linea, lista_lineas):
 
     print('Entro a la funcion')
+    
     for lineas in lista_lineas:
         
         print('Entro bucle lineas')
@@ -49,11 +50,12 @@ def comprobacion(datos_linea, lista_lineas):
             
         
         else:
-            lista_lineas.append(datos_telefono['Linea'])
+            
             print('Entro AQUI')
             print(lista_lineas)
             creacion_de_parametros(datos_linea)
-
+            
+    lista_lineas.append(datos_telefono['Linea'])
 
 
 
