@@ -8,12 +8,12 @@ def obtencion_de_paramentros(datos_telefono):
     print(datos_telefono['Extension'])
     linea = node.add_object(addspace, datos_telefono['Extension'])
     interfono = linea.add_object(addspace, datos_telefono['Interfono'])
-    Estacion = interfono.add_object(addspace, 'Estacion')
-    id_telefono = Estacion.add_variable(addspace, datos_telefono['id'])
-    registro = Estacion.add_variable(addspace, datos_telefono['Registro'])
-    estado = Estacion.add_variable(addspace, datos_telefono['Estado'])
-    llamada = Estacion.add_variable(addspace, datos_telefono['Llamada'])
-    linea = Estacion.add_variable(addspace, datos_telefono['Linea'])
+    estacion = interfono.add_object(addspace, 'Estacion')
+    id_telefono = estacion.add_variable(addspace, datos_telefono['id'])
+    registro = estacion.add_variable(addspace, datos_telefono['Registro'])
+    estado = estacion.add_variable(addspace, datos_telefono['Estado'])
+    llamada = estacion.add_variable(addspace, datos_telefono['Llamada'])
+    linea = estacion.add_variable(addspace, datos_telefono['Linea'])
 
 if __name__ == '__main__':
 
