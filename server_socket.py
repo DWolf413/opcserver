@@ -43,9 +43,9 @@ def comprobacion(datos_linea, lista_lineas):
     
     if datos_linea['Linea'] not in lista_lineas:
         print('No Encontrado1')
-        #break
-
-
+        lista_lineas.append(datos_telefono['Linea'])
+        creacion_de_parametros(datos_linea)
+    
     else:
         print('Encontrado')
             #lista_lineas.append(datos_telefono['Linea'])
