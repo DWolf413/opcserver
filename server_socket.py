@@ -40,7 +40,8 @@ def comprobacion(datos_linea, lista_lineas):
 
     for lineas in lista_lineas:
         
-        print (lineas)
+        print('Entro bucle lineas')
+        print(lineas)
 
         if lineas == datos_telefono['Linea']:
             print('Encontrado')
