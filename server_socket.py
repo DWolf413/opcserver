@@ -5,7 +5,7 @@ from opcua import Server, ua
 import time
 
 
-def creacion_de_paramentros(datos_telefono):
+def creacion_de_parametros(datos_telefono):
     
     linea = node.add_object(addspace, datos_telefono['Extension'])
     estacion = interfono.add_object(addspace, datos_telefono['Estacion'])
