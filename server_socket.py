@@ -40,9 +40,11 @@ def comprobacion(datos_linea, lista_lineas):
 
     for lineas in lista_lineas:
         
+        print (lineas)
+
         if lineas == datos_telefono['Linea']:
             print('Encontrado')
-            continue
+            break
         
         else:
             lista_lineas.append(datos_telefono['Linea'])
