@@ -53,7 +53,7 @@ def creacion_desde_interfono(datos_telefono):
     dic_interfonos[datos_telefono['Interfono']] = interfono
     print(dic_interfonos)
 
-def cambio_de_variables(datos_telefono):
+def crecacion_de_variables(datos_telefono):
 
     interfono = dic_interfonos[datos_telefono['Interfono']]
     id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
@@ -67,6 +67,8 @@ def cambio_de_variables(datos_telefono):
     registro.set_writable()
     estado.set_writable()
     llamada.set_writable()
+
+    print(id_interfono)
 
     id_telefono.set_value(datos_telefono['id'])
     extension.set_value(datos_telefono['Extension'])
@@ -100,7 +102,7 @@ def comprobacion(datos_telefono, lista_lineas, lista_estacion, lista_interfono):
                 creacion_desde_interfono(datos_telefono)
             else:
                 print('Interfono encontrado')
-                cambio_de_variables(datos_telefono)
+                creacion_de_variables(datos_telefono)
 
                 
                 
