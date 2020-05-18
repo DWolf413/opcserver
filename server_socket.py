@@ -22,6 +22,7 @@ def obtencion_de_paramentros(datos_telefono):
     llamada.set_writable()
     linea.set_writable()
 
+    print(datos_telefono['Estado'])
     id_telefono.set_value(datos_telefono['id'])
     registro.set_value(datos_telefono['Registro'])
     estado.set_value(datos_telefono['Estado'])
@@ -60,9 +61,7 @@ while True:
     data = conexion.recv(1024)
     datos_telefono = data.decode()
     datos_telefono = json.loads(data) 
-    #print(datos_telefono)
     obtencion_de_paramentros(datos_telefono)
-    #escritura_de_parametros(datos_telefono)
     print('OPC ENCENDIDO')
     message = ("Datos recibido").encode()
     conexion.sendall(message)
