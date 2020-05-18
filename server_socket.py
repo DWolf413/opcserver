@@ -51,9 +51,11 @@ def comprobacion(datos_linea, lista_lineas):
             
         else:
             print('Entro else')
+            lista_lineas.append(datos_telefono['Linea'])
             print(lista_lineas)
             creacion_de_parametros(datos_linea)
-            lista_lineas.append(datos_telefono['Linea'])
+            break
+            
 
 
 
@@ -81,6 +83,7 @@ if __name__ == '__main__':
 while True:
     
     print('TRUE')
+    print(lista_lineas)
     conexion, addr = mi_socket.accept()
     data = conexion.recv(1024)
     datos_telefono = data.decode()
