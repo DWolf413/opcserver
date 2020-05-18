@@ -39,13 +39,20 @@ def obtencion_de_paramentros(datos_telefono):
 
    #escritura_de_parametros(datos_telefono)
 
-def escritura_de_parametros(datos_telefono):
+def comprobacion(datos_linea, lista_lineas)
 
-   pass
+    for lineas in lista_lineas:
+        if lineas == datos_telefono['linea']:
+            print('Encontrado')
+        break
+    
+
 
 
 if __name__ == '__main__':
 
+    #PAREMETROS
+    lista_lineas = [] 
     #ACTIVACIÓN SERVIDOR SOCKET
     mi_socket = socket.socket()
     mi_socket.bind(('localhost', 8000))
@@ -67,8 +74,12 @@ while True:
     data = conexion.recv(1024)
     datos_telefono = data.decode()
     datos_telefono = json.loads(data) 
-    obtencion_de_paramentros(datos_telefono)
-    print('OPC ENCENDIDO')
+    lista_lineas.append(datos_telefono['linea'])
+    comprobacion(datos_telefono, lista_lineas)
+
+
+    #obtencion_de_paramentros(datos_telefono)
+    #print('OPC ENCENDIDO')
     #message = ("Datos recibido").encode()
     #conexion.sendall(message)
     conexion.close()
