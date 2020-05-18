@@ -20,15 +20,17 @@ def creacion_desde_linea(datos_telefono):
     print(dic_lineas)
 
 
-def creacion_desde_estacion(datos_linea, linea):
+def creacion_desde_estacion(datos_linea):
 
-    estacion = linea.add_object(addspace, datos_telefono['Estacion'])
-    interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
-    id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
-    extension = interfono.add_variable(addspace, 'Extensión', datos_telefono['Extension'])
-    registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
-    estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
-    llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
+    linea = dic_lineas[datos_telefono['Linea']]
+    print(linea)
+    #estacion = linea.add_object(addspace, datos_telefono['Estacion'])
+    #interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
+    #id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
+    #extension = interfono.add_variable(addspace, 'Extensión', datos_telefono['Extension'])
+    #registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
+    #estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
+    #llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
 
     
     #id_telefono.set_writable()
