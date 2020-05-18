@@ -7,29 +7,35 @@ import time
 
 def obtencion_de_paramentros(datos_telefono):
     print(datos_telefono['Extension'])
-    linea = node.add_object(addspace, datos_telefono['Extension'])
-    interfono = linea.add_object(addspace, datos_telefono['Interfono'])
-    estacion = interfono.add_object(addspace, "Estacion")
-    id_telefono = estacion.add_variable(addspace, 'Id', datos_telefono['id'])
-    registro = estacion.add_variable(addspace, 'Registro', datos_telefono['Registro'])
-    estado = estacion.add_variable(addspace, 'Estado', datos_telefono['Estado'])
-    llamada = estacion.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
-    linea = estacion.add_variable(addspace, 'Linea', datos_telefono['Linea'])
+    
+    datos_telefono['Extension'] = node.add_object(addspace, datos_telefono['Extension'])
+    datos_telefono['Interfono'] = datos_telefono['Extension'].add_object(addspace, datos_telefono['Interfono'])
+    
+    
+    
+    
+    
+    #estacion = interfono.add_object(addspace, "Estacion")
+    #id_telefono = estacion.add_variable(addspace, 'Id', datos_telefono['id'])
+    #registro = estacion.add_variable(addspace, 'Registro', datos_telefono['Registro'])
+    #estado = estacion.add_variable(addspace, 'Estado', datos_telefono['Estado'])
+    #llamada = estacion.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
+    #linea = estacion.add_variable(addspace, 'Linea', datos_telefono['Linea'])
 
-    id_telefono.set_writable()
-    registro.set_writable()
-    estado.set_writable()
-    llamada.set_writable()
-    linea.set_writable()
+    #id_telefono.set_writable()
+    #registro.set_writable()
+    #estado.set_writable()
+    #llamada.set_writable()
+    #linea.set_writable()
 
-    print(datos_telefono['Estado'])
-    id_telefono.set_value(datos_telefono['id'])
-    registro.set_value(datos_telefono['Registro'])
-    estado.set_value(datos_telefono['Estado'])
-    llamada.set_value(datos_telefono['Llamada'])
-    linea.set_value(datos_telefono['Linea'])
+    
+    #id_telefono.set_value(datos_telefono['id'])
+    #registro.set_value(datos_telefono['Registro'])
+    #estado.set_value(datos_telefono['Estado'])
+    #llamada.set_value(datos_telefono['Llamada'])
+    #linea.set_value(datos_telefono['Linea'])
 
-    time.sleep(2)
+    
 
    #escritura_de_parametros(datos_telefono)
 
