@@ -47,42 +47,31 @@ def creacion_desde_interfono(datos_linea):
     dic_interfonos[datos_telefono['Interfono']] = interfono
     print(dic_interfonos)
 
+def cambio_de_variables(datos_liena):
 
-#def creacion_desde_estacion(datos_linea):
+    interfono = dic_interfonos[datos_telefono['Interfono']]
+    id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
+    extension = interfono.add_variable(addspace, 'Extensión', datos_telefono['Extension'])
+    registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
+    estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
+    llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
 
-    #linea = dic_lineas[datos_telefono['Linea']]
-    #estacion = linea.add_object(addspace, datos_telefono['Estacion'])
-    #interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
-    #id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
-    #extension = interfono.add_variable(addspace, 'Extensión', datos_telefono['Extension'])
-    #registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
-    #estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
-    #llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
+    id_telefono.set_writable()
+    extension.set_writable()
+    registro.set_writable()
+    estado.set_writable()
+    llamada.set_writable()
 
-    #dic_lineas[datos_telefono['Estacion']] = estacion
-    
-    #id_telefono.set_writable()
-    #registro.set_writable()
-    #estado.set_writable()
-    #llamada.set_writable()
-    #linea.set_writable()
-
-    
-    #id_telefono.set_value(datos_telefono['id'])
-    #registro.set_value(datos_telefono['Registro'])
-    #estado.set_value(datos_telefono['Estado'])
-    #llamada.set_value(datos_telefono['Llamada'])
-    #linea.set_value(datos_telefono['Linea'])
-
-    
-
-   #escritura_de_parametros(datos_telefono)
-
+    id_telefono.set_value(datos_telefono['id'])
+    extension.set_value(datos_telefono['Extension'])
+    registro.set_value(datos_telefono['Registro'])
+    estado.set_value(datos_telefono['Estado'])
+    llamada.set_value(datos_telefono['Llamada'])
 
 def comprobacion(datos_telefono, lista_lineas, lista_estacion, lista_interfono):
 
     print('Entro a la funcion')
-    print(lista_lineas)
+    
     
     if datos_telefono['Linea'] not in lista_lineas:
         print('Linea no Encontrada')
@@ -100,15 +89,15 @@ def comprobacion(datos_telefono, lista_lineas, lista_estacion, lista_interfono):
         else:
             print('Estacion Encontrada')
             if datos_telefono['Interfono'] not in lista_interfono:
-                print('interfono no encontrado')
+                print('Interfono no encontrado')
                 lista_interfono.append(datos_telefono['Interfono'])
                 creacion_desde_interfono(datos_telefono)
+            else:
+                print('Interfono encontrado')
+                cambio_de_variables(datos_telefono)
+
                 
-
-           
-
-
-
+                
 if __name__ == '__main__':
 
     #PAREMETROS
