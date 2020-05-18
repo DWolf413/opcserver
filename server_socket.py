@@ -16,7 +16,8 @@ def creacion_desde_linea(datos_telefono):
     estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
     llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
 
-    return linea
+    lista_nodo_linea = [linea]
+    print(lista_nodo_linea)
 
 def creacion_desde_estacion(datos_linea, linea):
 
@@ -28,11 +29,7 @@ def creacion_desde_estacion(datos_linea, linea):
     estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
     llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
 
-
     
-
-
-
     #id_telefono.set_writable()
     #registro.set_writable()
     #estado.set_writable()
@@ -58,17 +55,18 @@ def comprobacion(datos_telefono, lista_lineas, lista_estacion):
     if datos_telefono['Linea'] not in lista_lineas:
         print('No Encontrado1')
         lista_lineas.append(datos_telefono['Linea'])
-        linea = creacion_desde_linea(datos_telefono)
-    
+        creacion_desde_linea(datos_telefono)
+       
     else:
         print('Encontrado')
         if datos_telefono['Estacion'] not in lista_estacion:
             print('Estacion no encontrada')
             lista_estacion.append(datos_telefono['Estacion'])
-            estacion = creacion_desde_estacion(datos_telefono, linea)
+            #creacion_desde_estacion(datos_telefono, linea)
         else:
-            print('Encontrado')            
-            
+            print('Encontrado') 
+
+           
 
 
 
