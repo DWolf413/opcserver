@@ -23,15 +23,15 @@ def creacion_desde_linea(datos_telefono):
 def creacion_desde_estacion(datos_linea):
 
     linea = dic_lineas[datos_telefono['Linea']]
-    print(linea)
-    #estacion = linea.add_object(addspace, datos_telefono['Estacion'])
-    #interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
-    #id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
-    #extension = interfono.add_variable(addspace, 'Extensión', datos_telefono['Extension'])
-    #registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
-    #estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
-    #llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
+    estacion = linea.add_object(addspace, datos_telefono['Estacion'])
+    interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
+    id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
+    extension = interfono.add_variable(addspace, 'Extensión', datos_telefono['Extension'])
+    registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
+    estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
+    llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
 
+    dic_lineas[datos_telefono['Estacion']] = estacion
     
     #id_telefono.set_writable()
     #registro.set_writable()
@@ -56,18 +56,20 @@ def comprobacion(datos_telefono, lista_lineas, lista_estacion):
     print(lista_lineas)
     
     if datos_telefono['Linea'] not in lista_lineas:
-        print('No Encontrado')
+        print('Linea no Encontrada')
         lista_lineas.append(datos_telefono['Linea'])
         lista_estacion.append(datos_telefono['Estacion'])
+        lista_interfono.append(datos_telefono['Interfono'])
         creacion_desde_linea(datos_telefono)
        
     else:
-        print('Encontrado')
+        print('Linea encontrado')
         if datos_telefono['Estacion'] not in lista_estacion:
             print('Estacion no encontrada')
             creacion_desde_estacion(datos_telefono)
         else:
-            print('Encontrado') 
+            print('Estacion Encontrada')
+
 
            
 
@@ -78,8 +80,11 @@ if __name__ == '__main__':
     #PAREMETROS
     lista_lineas = []
     lista_estacion = []
-    global dic_lineas
+    lista_interfono = []
+    global dic_lineas, dic_estaciones
     dic_lineas = {}
+    dic_estaciones = {}
+
     
     #ACTIVACIÓN SERVIDOR SOCKET
     mi_socket = socket.socket()
