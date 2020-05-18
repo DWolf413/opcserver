@@ -56,16 +56,16 @@ def comprobacion(datos_telefono, lista_lineas, lista_estacion):
     print(lista_lineas)
     
     if datos_telefono['Linea'] not in lista_lineas:
-        print('No Encontrado1')
+        print('No Encontrado')
         lista_lineas.append(datos_telefono['Linea'])
+        lista_estacion.append(datos_telefono['Estacion'])
         creacion_desde_linea(datos_telefono)
        
     else:
         print('Encontrado')
         if datos_telefono['Estacion'] not in lista_estacion:
             print('Estacion no encontrada')
-            lista_estacion.append(datos_telefono['Estacion'])
-            #creacion_desde_estacion(datos_telefono, linea)
+            creacion_desde_estacion(datos_telefono)
         else:
             print('Encontrado') 
 
