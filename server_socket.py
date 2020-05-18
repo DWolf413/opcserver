@@ -68,7 +68,7 @@ def crecacion_de_variables(datos_telefono):
     estado.set_writable()
     llamada.set_writable()
 
-    print(id_interfono)
+    print(id_telefono)
 
     id_telefono.set_value(datos_telefono['id'])
     extension.set_value(datos_telefono['Extension'])
