@@ -39,13 +39,13 @@ def obtencion_de_paramentros(datos_telefono):
 
    #escritura_de_parametros(datos_telefono)
 
-def comprobacion(datos_linea, lista_lineas)
+def comprobacion(datos_linea, lista_lineas):
 
     for lineas in lista_lineas:
         if lineas == datos_telefono['linea']:
             print('Encontrado')
         break
-    
+
 
 
 
