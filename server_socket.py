@@ -7,6 +7,7 @@ import time
 
 def creacion_desde_linea(datos_telefono):
     
+    global dic_lineas = {}
     linea = node.add_object(addspace, datos_telefono['Linea'])
     estacion = linea.add_object(addspace, datos_telefono['Estacion'])
     interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
@@ -18,6 +19,9 @@ def creacion_desde_linea(datos_telefono):
 
     lista_nodo_linea = [linea]
     print(lista_nodo_linea)
+
+    dic_lineas[datos_telefono['Linea']] = linea
+
 
 def creacion_desde_estacion(datos_linea, linea):
 
