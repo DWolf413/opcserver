@@ -8,7 +8,7 @@ def obtencion_de_paramentros(datos_telefono):
     print(datos_telefono['Extension'])
     linea = node.add_object(addspace, datos_telefono['Extension'])
     interfono = linea.add_object(addspace, datos_telefono['Interfono'])
-    Estacion = interfono.add_object(addspace, datos_telefono['Estacion'])
+    Estacion = interfono.add_object(addspace, 'Estacion')
     id_telefono = Estacion.add_variable(addspace, datos_telefono['id'])
     registro = Estacion.add_variable(addspace, datos_telefono['Registro'])
     estado = Estacion.add_variable(addspace, datos_telefono['Estado'])
