@@ -45,8 +45,9 @@ def comprobacion(datos_linea, lista_lineas):
             break
         
         else:
-            
             lista_lineas.append(datos_telefono['Linea'])
+            print('Entro AQUI')
+            print(listas_lineas)
             creacion_de_parametros(datos_linea)
 
 
