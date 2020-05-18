@@ -5,7 +5,7 @@ from opcua import Server, ua
 import time
 
 
-def creacion_de_parametros(datos_telefono):
+def creacion_desde_linea(datos_telefono):
     
     linea = node.add_object(addspace, datos_telefono['Linea'])
     estacion = linea.add_object(addspace, datos_telefono['Estacion'])
@@ -15,6 +15,20 @@ def creacion_de_parametros(datos_telefono):
     registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
     estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
     llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
+
+    return linea
+
+def creacion_de_parametros(datos_linea, linea):
+
+    estacion = linea.add_object(addspace, datos_telefono['Estacion'])
+    interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
+    id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
+    extension = interfono.add_variable(addspace, 'Extensión', datos_telefono['Extension'])
+    registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
+    estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
+    llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
+
+
     
 
 
@@ -36,7 +50,7 @@ def creacion_de_parametros(datos_telefono):
 
    #escritura_de_parametros(datos_telefono)
 
-def comprobacion(datos_linea, lista_lineas):
+def comprobacion(datos_telefono, lista_lineas, lista_estacion):
 
     print('Entro a la funcion')
     print(lista_lineas)
@@ -44,14 +58,16 @@ def comprobacion(datos_linea, lista_lineas):
     if datos_linea['Linea'] not in lista_lineas:
         print('No Encontrado1')
         lista_lineas.append(datos_telefono['Linea'])
-        creacion_de_parametros(datos_linea)
+        linea = creacion_desde_linea(datos_telefono)
     
     else:
         print('Encontrado')
-            #lista_lineas.append(datos_telefono['Linea'])
-            #print(lista_lineas)
-            #creacion_de_parametros(datos_linea)
-            #break
+        if datos_linea['Estacion'] not in lista_estacion:
+            print('Estacion no encontrada')
+            lista_estacion.append(datos_telefono['Estacion'])
+            estacion = creacion_desde_estacion(datos_telefono, linea)
+        else:
+            print('Encontrado')            
             
 
 
@@ -59,7 +75,9 @@ def comprobacion(datos_linea, lista_lineas):
 if __name__ == '__main__':
 
     #PAREMETROS
-    lista_lineas = ['LINEA'] 
+    lista_lineas = []
+    lista_estacion = []
+
     
     #ACTIVACIÓN SERVIDOR SOCKET
     mi_socket = socket.socket()
@@ -85,7 +103,7 @@ while True:
     data = conexion.recv(1024)
     datos_telefono = data.decode()
     datos_telefono = json.loads(data) 
-    comprobacion(datos_telefono, lista_lineas)
+    comprobacion(datos_telefono, lista_lineas, lista_estacion)
 
 
 
