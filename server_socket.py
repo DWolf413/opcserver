@@ -38,6 +38,7 @@ def creacion_de_parametros(datos_telefono):
 
 def comprobacion(datos_linea, lista_lineas):
 
+    print('Entro a la funcion')
     for lineas in lista_lineas:
         
         print('Entro bucle lineas')
@@ -79,6 +80,7 @@ if __name__ == '__main__':
 
 while True:
     
+    print('TRUE')
     print(lista_lineas)
     conexion, addr = mi_socket.accept()
     data = conexion.recv(1024)
