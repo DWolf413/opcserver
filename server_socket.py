@@ -54,15 +54,14 @@ def comprobacion(datos_linea, lista_lineas):
             print('Entro AQUI')
             print(lista_lineas)
             creacion_de_parametros(datos_linea)
-            
-    lista_lineas.append(datos_telefono['Linea'])
+            lista_lineas.append(datos_telefono['Linea'])
 
 
 
 if __name__ == '__main__':
 
     #PAREMETROS
-    lista_lineas = [] 
+    lista_lineas = ['LINEA'] 
     
     #ACTIVACIÓN SERVIDOR SOCKET
     mi_socket = socket.socket()
