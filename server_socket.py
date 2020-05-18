@@ -39,12 +39,17 @@ def obtencion_de_paramentros(datos_telefono):
 
    #escritura_de_parametros(datos_telefono)
 
-def comprobacion(datos_linea, lista_lineas):
+def comprobacion(datos_linea):
+
+    lista_lineas = []
 
     for lineas in lista_lineas:
         if lineas == datos_telefono['Linea']:
             print('Encontrado')
         break
+        else:
+            lista_lineas.append(datos_telefono['Linea'])
+            print(lista_lineas)
 
 
 
@@ -74,8 +79,7 @@ while True:
     data = conexion.recv(1024)
     datos_telefono = data.decode()
     datos_telefono = json.loads(data) 
-    lista_lineas.append(datos_telefono['linea'])
-    comprobacion(datos_telefono, lista_lineas)
+    comprobacion(datos_telefono)
 
 
     #obtencion_de_paramentros(datos_telefono)
