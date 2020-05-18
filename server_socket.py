@@ -106,6 +106,7 @@ while True:
     
     print('TRUE')
     print(lista_lineas)
+    print(lista_estacion)
     conexion, addr = mi_socket.accept()
     data = conexion.recv(1024)
     datos_telefono = data.decode()
