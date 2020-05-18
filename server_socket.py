@@ -39,9 +39,7 @@ def obtencion_de_paramentros(datos_telefono):
 
    #escritura_de_parametros(datos_telefono)
 
-def comprobacion(datos_linea):
-
-    lista_lineas = []
+def comprobacion(datos_linea, lista_lineas):
 
     for lineas in lista_lineas:
         if lineas == datos_telefono['Linea']:
@@ -59,6 +57,7 @@ if __name__ == '__main__':
 
     #PAREMETROS
     lista_lineas = [] 
+    
     #ACTIVACIÓN SERVIDOR SOCKET
     mi_socket = socket.socket()
     mi_socket.bind(('localhost', 8000))
@@ -76,11 +75,13 @@ if __name__ == '__main__':
 
 
 while True:
+    
+    print(lista_lineas)
     conexion, addr = mi_socket.accept()
     data = conexion.recv(1024)
     datos_telefono = data.decode()
     datos_telefono = json.loads(data) 
-    comprobacion(datos_telefono)
+    comprobacion(datos_telefono, lista_lineas)
 
 
     #obtencion_de_paramentros(datos_telefono)
