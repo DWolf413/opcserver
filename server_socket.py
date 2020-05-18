@@ -20,7 +20,7 @@ def creacion_desde_linea(datos_telefono):
     print(dic_lineas)
 
 
-def creacion_desde_estacion(datos_linea):
+def creacion_desde_estacion(datos_telefono):
 
     linea = dic_lineas[datos_telefono['Linea']]
     estacion = linea.add_object(addspace, datos_telefono['Estacion'])
@@ -34,7 +34,7 @@ def creacion_desde_estacion(datos_linea):
     dic_estaciones[datos_telefono['Estacion']] = estacion
     print(dic_estaciones)
     
-def creacion_desde_interfono(datos_linea):
+def creacion_desde_interfono(datos_telefono):
     
     estacion = dic_estaciones[datos_telefono['Estacion']]
     interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
@@ -47,7 +47,7 @@ def creacion_desde_interfono(datos_linea):
     dic_interfonos[datos_telefono['Interfono']] = interfono
     print(dic_interfonos)
 
-def cambio_de_variables(datos_liena):
+def cambio_de_variables(datos_telefono):
 
     interfono = dic_interfonos[datos_telefono['Interfono']]
     id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
