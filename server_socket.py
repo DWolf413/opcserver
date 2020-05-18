@@ -31,7 +31,35 @@ def creacion_desde_estacion(datos_linea):
     estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
     llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
 
-    dic_lineas[datos_telefono['Estacion']] = estacion
+    dic_estaciones[datos_telefono['Estacion']] = estacion
+    print(dic_estaciones)
+    
+def creacion_desde_interfono(datos_linea):
+    
+    estacion = dic_estaciones[datos_telefono['Estacion']]
+    interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
+    id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
+    extension = interfono.add_variable(addspace, 'Extensión', datos_telefono['Extension'])
+    registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
+    estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
+    llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
+
+    dic_interfonos[datos_telefono['Interfono']] = interfono
+    print(dic_interfonos)
+
+
+#def creacion_desde_estacion(datos_linea):
+
+    #linea = dic_lineas[datos_telefono['Linea']]
+    #estacion = linea.add_object(addspace, datos_telefono['Estacion'])
+    #interfono = estacion.add_object(addspace, datos_telefono['Interfono'])
+    #id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
+    #extension = interfono.add_variable(addspace, 'Extensión', datos_telefono['Extension'])
+    #registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
+    #estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
+    #llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
+
+    #dic_lineas[datos_telefono['Estacion']] = estacion
     
     #id_telefono.set_writable()
     #registro.set_writable()
@@ -50,7 +78,8 @@ def creacion_desde_estacion(datos_linea):
 
    #escritura_de_parametros(datos_telefono)
 
-def comprobacion(datos_telefono, lista_lineas, lista_estacion):
+
+def comprobacion(datos_telefono, lista_lineas, lista_estacion, lista_interfono):
 
     print('Entro a la funcion')
     print(lista_lineas)
@@ -70,7 +99,11 @@ def comprobacion(datos_telefono, lista_lineas, lista_estacion):
             creacion_desde_estacion(datos_telefono)
         else:
             print('Estacion Encontrada')
-
+            if datos_telefono['Interfono'] not in lista_interfono:
+                print('interfono no encontrado')
+                lista_interfono.append(datos_telefono['Interfono'])
+                creacion_desde_interfono(datos_telefono)
+                
 
            
 
@@ -82,9 +115,10 @@ if __name__ == '__main__':
     lista_lineas = []
     lista_estacion = []
     lista_interfono = []
-    global dic_lineas, dic_estaciones
+    global dic_lineas, dic_estaciones, dic_interfonos
     dic_lineas = {}
     dic_estaciones = {}
+    dic_interfonos = {}
 
     
     #ACTIVACIÓN SERVIDOR SOCKET
@@ -108,11 +142,12 @@ while True:
     print('TRUE')
     print(lista_lineas)
     print(lista_estacion)
+    print(lista_interfono)
     conexion, addr = mi_socket.accept()
     data = conexion.recv(1024)
     datos_telefono = data.decode()
     datos_telefono = json.loads(data) 
-    comprobacion(datos_telefono, lista_lineas, lista_estacion)
+    comprobacion(datos_telefono, lista_lineas, lista_estacion, lista_interfono)
 
 
 
