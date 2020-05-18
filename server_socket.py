@@ -46,7 +46,7 @@ def comprobacion(datos_linea, lista_lineas):
         print('Entro bucle lineas')
         print(lineas)
 
-        if lineas not in lista_lineas
+        if lineas not in lista_lineas:
             print('No Encontrado')
             #break
             
