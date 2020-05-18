@@ -47,10 +47,9 @@ def comprobacion(datos_linea, lista_lineas):
 
         if lineas == datos_telefono['Linea']:
             print('Encontrado')
+            break
             
-        
         else:
-            
             print('Entro AQUI')
             print(lista_lineas)
             creacion_de_parametros(datos_linea)
@@ -82,7 +81,6 @@ if __name__ == '__main__':
 while True:
     
     print('TRUE')
-    print(lista_lineas)
     conexion, addr = mi_socket.accept()
     data = conexion.recv(1024)
     datos_telefono = data.decode()
