@@ -42,7 +42,7 @@ def obtencion_de_paramentros(datos_telefono):
 def comprobacion(datos_linea, lista_lineas):
 
     for lineas in lista_lineas:
-        if lineas == datos_telefono['linea']:
+        if lineas == datos_telefono['Linea']:
             print('Encontrado')
         break
 
