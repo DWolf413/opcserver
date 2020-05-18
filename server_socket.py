@@ -7,7 +7,7 @@ from opcua import Server, ua
 def obtencion_de_paramentros(datos_telefono):
     print(datos_telefono['Extension'])
     Linea = node.add_object(addspace, datos_telefono['Extension'])
-    Estacion = node.add_object(addspace, datos_telefono['Interfono'])
+    Interfono = Linea.add_object(addspace, datos_telefono['Interfono'])
 
 if __name__ == '__main__':
 
