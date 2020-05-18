@@ -53,7 +53,7 @@ def creacion_desde_interfono(datos_telefono):
     dic_interfonos[datos_telefono['Interfono']] = interfono
     print(dic_interfonos)
 
-def crecacion_de_variables(datos_telefono):
+def creacion_de_variables(datos_telefono):
 
     interfono = dic_interfonos[datos_telefono['Interfono']]
     id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
