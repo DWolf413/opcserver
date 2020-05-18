@@ -27,6 +27,8 @@ def obtencion_de_paramentros(datos_telefono):
     llamada.set_value(datos_telefono['Llamada'])
     linea.set_value(datos_telefono['Linea'])
 
+    time.sleep(2)
+
    #escritura_de_parametros(datos_telefono)
 
 def escritura_de_parametros(datos_telefono):
