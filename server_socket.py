@@ -26,10 +26,10 @@ def creacion_desde_linea(datos_telefono):
     dic_estaciones[datos_telefono['Estacion']] = estacion
     dic_interfonos[datos_telefono['Interfono']] = interfono
     dic_variables[datos_telefono['Linea'] + datos_telefono['Estacion'] + datos_telefono['Interfono']] = [id_telefono, extension, registro, estado, llamada]
-    print(dic_lineas)
-    print(dic_estaciones)
-    print(dic_interfonos)
-    print(dic_variables)
+    #print(dic_lineas)
+    #print(dic_estaciones)
+    #print(dic_interfonos)
+    #print(dic_variables)
 
 
 def creacion_desde_estacion(datos_telefono):
@@ -52,8 +52,9 @@ def creacion_desde_estacion(datos_telefono):
 
     dic_estaciones[datos_telefono['Estacion']] = estacion
     dic_interfonos[datos_telefono['Intefono']] = interfono
-    print(dic_estaciones)
-    print(dic_interfonos)
+    dic_variables[datos_telefono['Linea'] + datos_telefono['Estacion'] + datos_telefono['Interfono']] = [id_telefono, extension, registro, estado, llamada]
+    #print(dic_estaciones)
+    #print(dic_interfonos)
     
 def creacion_desde_interfono(datos_telefono):
     
@@ -73,6 +74,7 @@ def creacion_desde_interfono(datos_telefono):
     llamada.set_writable()
 
     dic_interfonos[datos_telefono['Interfono']] = interfono
+    dic_variables[datos_telefono['Linea'] + datos_telefono['Estacion'] + datos_telefono['Interfono']] = [id_telefono, extension, registro, estado, llamada]
     print(dic_interfonos)
 
 def actualizacion_de_variables(datos_telefono):
@@ -149,9 +151,9 @@ if __name__ == '__main__':
 while True:
     
     print('TRUE')
-    print(lista_lineas)
-    print(lista_estacion)
-    print(lista_interfono)
+    #print(lista_lineas)
+    #print(lista_estacion)
+    #print(lista_interfono)
     conexion, addr = mi_socket.accept()
     data = conexion.recv(1024)
     datos_telefono = data.decode()
