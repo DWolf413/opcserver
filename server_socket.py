@@ -19,7 +19,7 @@ def creacion_desde_linea(datos_telefono):
     dic_lineas[datos_telefono['Linea']] = linea
     dic_estaciones[datos_telefono['Estacion']] = estacion
     dic_interfonos[datos_telefono['Interfono']] = interfono
-    dic_variables[datos_telefono['Interfono']] = [datos_telefono['id'], datos_telefono['Extension'], datos_telefono['Registro'], datos_telefono['Estado'], datos_telefono['Llamada']]
+    dic_variables[datos_telefono['Interfono']] = [id_telefono, extension, registro, estado, llamada]
     print(dic_lineas)
     print(dic_estaciones)
     print(dic_interfonos)
