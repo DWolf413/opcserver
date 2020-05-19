@@ -78,7 +78,7 @@ def creacion_desde_interfono(datos_telefono):
 def actualizacion_de_variables(datos_telefono):
 
     list_variables = []
-    list_variables = dic_variables[datos_telefono['Linea']]
+    list_variables = dic_variables[datos_telefono['Linea'] + datos_telefono['Estacion'] + datos_telefono['Interfono']]
 
     list_variables[0].set_value(datos_telefono['id'])
     list_variables[1].set_value(datos_telefono['Extension'])
