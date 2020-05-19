@@ -79,15 +79,12 @@ def actualizacion_de_variables(datos_telefono):
 
     list_variables = []
     list_variables = dic_variables[datos_telefono['Linea']]
-  
 
-    print(list_variables)
-
-    #id_telefono.set_value(datos_telefono['id'])
-    #extension.set_value(datos_telefono['Extension'])
-    #registro.set_value(datos_telefono['Registro'])
-    #estado.set_value(datos_telefono['Estado'])
-    #llamada.set_value(datos_telefono['Llamada'])
+    list_variables[0].set_value(datos_telefono['id'])
+    list_variables[1].set_value(datos_telefono['Extension'])
+    list_variables[2].set_value(datos_telefono['Registro'])
+    list_variables[3].set_value(datos_telefono['Estado'])
+    list_variables[4].set_value(datos_telefono['Llamada'])
 
 def comprobacion(datos_telefono, lista_lineas, lista_estacion, lista_interfono):
 
