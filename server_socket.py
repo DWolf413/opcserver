@@ -15,11 +15,17 @@ def creacion_desde_linea(datos_telefono):
     registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
     estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
     llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
+     
+    id_telefono.set_writable()
+    extension.set_writable()
+    registro.set_writable()
+    estado.set_writable()
+    llamada.set_writable()
 
     dic_lineas[datos_telefono['Linea']] = linea
     dic_estaciones[datos_telefono['Estacion']] = estacion
     dic_interfonos[datos_telefono['Interfono']] = interfono
-    dic_variables[datos_telefono['Interfono']] = [id_telefono, extension, registro, estado, llamada]
+    dic_variables[datos_telefono['Linea']] = [id_telefono, extension, registro, estado, llamada]
     print(dic_lineas)
     print(dic_estaciones)
     print(dic_interfonos)
@@ -37,6 +43,13 @@ def creacion_desde_estacion(datos_telefono):
     estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
     llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
 
+     
+    id_telefono.set_writable()
+    extension.set_writable()
+    registro.set_writable()
+    estado.set_writable()
+    llamada.set_writable()
+
     dic_estaciones[datos_telefono['Estacion']] = estacion
     dic_interfonos[datos_telefono['Intefono']] = interfono
     print(dic_estaciones)
@@ -52,35 +65,29 @@ def creacion_desde_interfono(datos_telefono):
     estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
     llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
 
-    dic_interfonos[datos_telefono['Interfono']] = interfono
-    print(dic_interfonos)
-
-def creacion_de_variables(datos_telefono):
-
-    interfono = dic_interfonos[datos_telefono['Interfono']]
-    id_telefono = interfono.add_variable(addspace, 'Id', datos_telefono['id'])
-    extension = interfono.add_variable(addspace, 'Extensión', datos_telefono['Extension'])
-    registro = interfono.add_variable(addspace, 'Registro', datos_telefono['Registro'])
-    estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
-    llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
-
-    
-
-
-    
+     
     id_telefono.set_writable()
     extension.set_writable()
     registro.set_writable()
     estado.set_writable()
     llamada.set_writable()
 
-    print(id_telefono)
+    dic_interfonos[datos_telefono['Interfono']] = interfono
+    print(dic_interfonos)
 
-    id_telefono.set_value(datos_telefono['id'])
-    extension.set_value(datos_telefono['Extension'])
-    registro.set_value(datos_telefono['Registro'])
-    estado.set_value(datos_telefono['Estado'])
-    llamada.set_value(datos_telefono['Llamada'])
+def actualizacion_de_variables(datos_telefono):
+
+    list_variables = []
+    list_variables = dic_variables[datos_telefono['Linea']]
+  
+
+    print(list_variables)
+
+    #id_telefono.set_value(datos_telefono['id'])
+    #extension.set_value(datos_telefono['Extension'])
+    #registro.set_value(datos_telefono['Registro'])
+    #estado.set_value(datos_telefono['Estado'])
+    #llamada.set_value(datos_telefono['Llamada'])
 
 def comprobacion(datos_telefono, lista_lineas, lista_estacion, lista_interfono):
 
@@ -108,7 +115,8 @@ def comprobacion(datos_telefono, lista_lineas, lista_estacion, lista_interfono):
                 creacion_desde_interfono(datos_telefono)
             else:
                 print('Interfono encontrado')
-                creacion_de_variables(datos_telefono)
+                actualizacion_de_variables(datos_telefono)
+
 
                 
                 
