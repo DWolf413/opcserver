@@ -19,9 +19,11 @@ def creacion_desde_linea(datos_telefono):
     dic_lineas[datos_telefono['Linea']] = linea
     dic_estaciones[datos_telefono['Estacion']] = estacion
     dic_interfonos[datos_telefono['Interfono']] = interfono
+    dic_variables[datos_telefono['Interfono']] = [datos_telefono['id'], datos_telefono['Extension'], datos_telefono['Registro'], datos_telefono['Estado'], datos_telefono['Llamada']]
     print(dic_lineas)
     print(dic_estaciones)
     print(dic_interfonos)
+    print(dic_variables)
 
 
 def creacion_desde_estacion(datos_telefono):
@@ -62,6 +64,10 @@ def creacion_de_variables(datos_telefono):
     estado = interfono.add_variable(addspace, 'Estado', datos_telefono['Estado'])
     llamada = interfono.add_variable(addspace, 'Llamada', datos_telefono['Llamada'])
 
+    
+
+
+    
     id_telefono.set_writable()
     extension.set_writable()
     registro.set_writable()
@@ -112,10 +118,11 @@ if __name__ == '__main__':
     lista_lineas = []
     lista_estacion = []
     lista_interfono = []
-    global dic_lineas, dic_estaciones, dic_interfonos
+    global dic_lineas, dic_estaciones, dic_interfonos, dic_variables
     dic_lineas = {}
     dic_estaciones = {}
     dic_interfonos = {}
+    dic_variables = {}
 
     
     #ACTIVACIÓN SERVIDOR SOCKET
